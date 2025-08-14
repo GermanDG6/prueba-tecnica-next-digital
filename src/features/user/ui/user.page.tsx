@@ -24,6 +24,7 @@ export const UserPage: FC = () => {
     <>
       <h2>User Information</h2>
       {user && <UserCard user={user} />}
+      <a href="/users">Back</a>
     </>
   )
 }

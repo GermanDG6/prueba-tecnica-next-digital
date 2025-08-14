@@ -28,6 +28,7 @@ describe('Users page', () => {
           name: '',
           catchPhrase: '',
         },
+        website: '',
       },
     ])
     render(<UsersPage />)
@@ -57,6 +58,7 @@ describe('Users page', () => {
           name: '',
           catchPhrase: '',
         },
+        website: '',
       },
     ])
 

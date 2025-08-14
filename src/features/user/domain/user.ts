@@ -8,6 +8,7 @@ export interface User {
   address: Address
   phone: string
   company: Company
+  website: string
 }
 
 interface Address {

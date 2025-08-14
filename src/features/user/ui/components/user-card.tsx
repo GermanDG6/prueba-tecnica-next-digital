@@ -12,8 +12,10 @@ export const UserCard: FC<Props> = (props) => {
   return (
     <div className="user-card">
       <p>Name: {user.name}</p>
-      <p>Phone: {user.phone}</p>
+      <p>Username: {user.username}</p>
       <p>Email: {user.email}</p>
+      <p>City: {user.address.city}</p>
+      <p>Website: {user.website}</p>
       <p>Company: {user.company.name}</p>
     </div>
   )
