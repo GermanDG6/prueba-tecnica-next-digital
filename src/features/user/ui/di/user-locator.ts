@@ -4,14 +4,11 @@ import type { UserRepository } from '../../domain/user-repository'
 import { HttpUserRepository } from '../../infrastructure/http-user-repository'
 
 export class UserLocator {
-  static testRepository?: UserRepository
+  static testRepository: UserRepository
   private static readonly isTestMode = process.env.NODE_ENV === 'test'
 
   private static get repository(): UserRepository {
     if (UserLocator.isTestMode) {
-      if (!UserLocator.testRepository) {
-        throw new Error('testRepository no inicializado en test')
-      }
       return UserLocator.testRepository
     }
     return new HttpUserRepository()

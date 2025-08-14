@@ -1,5 +1,7 @@
 import { render, screen } from '@testing-library/react'
+import type { Mocked } from 'vitest'
 import { mockReset } from 'vitest-mock-extended'
+import type { UserRepository } from '../domain/user-repository'
 import { UserLocator } from './di/user-locator'
 import { UsersPage } from './users.page'
 
@@ -8,7 +10,9 @@ describe('Users page', () => {
     mockReset(UserLocator.testRepository)
   })
   it('should render properly', async () => {
-    UserLocator.testRepository.getUsers.mockResolvedValue([
+    const repoMock = UserLocator.testRepository as Mocked<UserRepository>
+
+    repoMock.getUsers.mockResolvedValue([
       {
         name: 'Alberto',
         id: 0,
@@ -35,7 +39,9 @@ describe('Users page', () => {
   })
 
   it('should render cards with user information ', async () => {
-    UserLocator.testRepository.getUsers.mockResolvedValue([
+    const repoMock = UserLocator.testRepository as Mocked<UserRepository>
+
+    repoMock.getUsers.mockResolvedValue([
       {
         name: 'Alberto',
         id: 0,
@@ -61,7 +67,9 @@ describe('Users page', () => {
     expect(userName[0]).toBeInTheDocument()
   })
   it('should render a notification if no have any user', async () => {
-    UserLocator.testRepository.getUsers.mockResolvedValue([])
+    const repoMock = UserLocator.testRepository as Mocked<UserRepository>
+
+    repoMock.getUsers.mockResolvedValue([])
 
     render(<UsersPage />)
 
