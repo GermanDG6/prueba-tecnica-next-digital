@@ -1,3 +1,4 @@
+import { GetUserQuery } from '../../application/get-user.query'
 import { GetUsersQuery } from '../../application/get-users.query'
 import type { UserRepository } from '../../domain/user-repository'
 import { HttpUserRepository } from '../../infrastructure/http-user-repository'
@@ -17,5 +18,9 @@ export class UserLocator {
   }
   static getUsersQry() {
     return new GetUsersQuery(this.repository)
+  }
+
+  static getUserQry() {
+    return new GetUserQuery(this.repository)
   }
 }
