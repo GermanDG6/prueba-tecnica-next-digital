@@ -19,7 +19,8 @@ export const UsersPage = () => {
 
   return (
     <>
-      <h1>Users</h1>
+      <h1>Next Digital Social Media</h1>
+      <h3>All users</h3>
 
       {users.length > 0 ? (
         users.map((user) => {
