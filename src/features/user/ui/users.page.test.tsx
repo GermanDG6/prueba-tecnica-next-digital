@@ -33,7 +33,7 @@ describe('Users page', () => {
     ])
     render(<UsersPage />)
 
-    const title = await screen.findByText('Users')
+    const title = await screen.findByText('Next Digital Social Media')
 
     expect(title).toBeInTheDocument()
     expect(UserLocator.testRepository.getUsers).toHaveBeenCalled()

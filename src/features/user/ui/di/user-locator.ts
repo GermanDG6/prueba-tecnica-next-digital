@@ -1,3 +1,4 @@
+import { HttpClient } from '../../../../core/http-client/http-client'
 import { GetUserQuery } from '../../application/get-user.query'
 import { GetUsersQuery } from '../../application/get-users.query'
 import type { UserRepository } from '../../domain/user-repository'
@@ -11,7 +12,7 @@ export class UserLocator {
     if (UserLocator.isTestMode) {
       return UserLocator.testRepository
     }
-    return new HttpUserRepository()
+    return new HttpUserRepository(new HttpClient())
   }
   static getUsersQry() {
     return new GetUsersQuery(this.repository)
