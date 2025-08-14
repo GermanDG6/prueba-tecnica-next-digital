@@ -1,3 +1,5 @@
+import type { NumberId } from '../../../core/number-id/number-id'
+
 export interface User {
   id: NumberId
   name: string
@@ -18,5 +20,3 @@ interface Company {
   name: string
   catchPhrase: string
 }
-
-type NumberId = number
