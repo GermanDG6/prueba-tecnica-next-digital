@@ -24,7 +24,7 @@ export const UsersPage = () => {
       {users.length > 0 ? (
         users.map((user) => {
           return (
-            <a href={`/users/${user.id}`}>
+            <a href={`/users/${user.id}`} key={user.id}>
               <UserCard user={user} />
             </a>
           )
