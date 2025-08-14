@@ -8,8 +8,6 @@ import { UsersPage } from './users.page'
 describe('Users page', () => {
   beforeEach(() => {
     mockReset(UserLocator.testRepository)
-  })
-  it('should render properly', async () => {
     const repoMock = UserLocator.testRepository as Mocked<UserRepository>
 
     repoMock.getUsers.mockResolvedValue([
@@ -31,6 +29,8 @@ describe('Users page', () => {
         website: '',
       },
     ])
+  })
+  it('should render properly', async () => {
     render(<UsersPage />)
 
     const title = await screen.findByText('Next Digital Social Media')
@@ -40,28 +40,6 @@ describe('Users page', () => {
   })
 
   it('should render cards with user information ', async () => {
-    const repoMock = UserLocator.testRepository as Mocked<UserRepository>
-
-    repoMock.getUsers.mockResolvedValue([
-      {
-        name: 'Alberto',
-        id: 0,
-        username: '',
-        email: '',
-        address: {
-          street: '',
-          city: '',
-          zipcode: '',
-        },
-        phone: '',
-        company: {
-          name: '',
-          catchPhrase: '',
-        },
-        website: '',
-      },
-    ])
-
     render(<UsersPage />)
 
     const userName = await screen.findAllByText('Name:', { exact: false })

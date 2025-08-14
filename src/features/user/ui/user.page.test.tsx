@@ -7,8 +7,6 @@ import { UserLocator } from './di/user-locator'
 describe('User page', () => {
   beforeEach(() => {
     mockReset(UserLocator.testRepository)
-  })
-  it('should render properly', async () => {
     const repoMock = UserLocator.testRepository as Mocked<UserRepository>
 
     repoMock.getUser.mockResolvedValue({
@@ -28,7 +26,8 @@ describe('User page', () => {
       },
       website: '',
     })
-
+  })
+  it('should render properly', async () => {
     render(<UserPage />)
     waitFor(async () => {
       const title = await screen.findByText('User Information')
@@ -36,26 +35,6 @@ describe('User page', () => {
     })
   })
   it('should render properly', async () => {
-    const repoMock = UserLocator.testRepository as Mocked<UserRepository>
-
-    repoMock.getUser.mockResolvedValue({
-      name: 'Alberto',
-      id: 0,
-      username: '',
-      email: '',
-      address: {
-        street: '',
-        city: '',
-        zipcode: '',
-      },
-      phone: '',
-      company: {
-        name: '',
-        catchPhrase: '',
-      },
-      website: '',
-    })
-
     render(<UserPage />)
     waitFor(async () => {
       const name = await screen.findByText('Name: Alberto')
